@@ -36,6 +36,7 @@
     // El primer article és fals degut a que serà la descripció de la botiga (HeaderListCell)
     [products addObject:[@"NOP" retain]];
     isScanning = YES;
+    paymentDone = NO;
     finData = [[[CFinData alloc] init] retain];
 }
 
@@ -343,6 +344,14 @@
         ticketImage.hidden = YES;
         separatorImage.hidden = YES;
     }
+    if (paymentDone)
+    {
+        payBtn.enabled = NO;
+    }
+    else
+    {
+        payBtn.enabled = YES;
+    }
     [itemsListTable reloadData];
 }
 
@@ -382,8 +391,22 @@
     }
     else
     {
-        isScanning = YES;
-        [self organizeView];
+        if (paymentDone)
+        {
+            [products removeAllObjects];
+            [products addObject:@"NOP"];
+            [theShop release];
+            theShop = nil;
+            [readerView stop];
+            paymentDone = NO;
+            isScanning = YES;
+            [self organizeView];
+        }
+        else
+        {
+            isScanning = YES;
+            [self organizeView];
+        }
     }
 }
 
@@ -400,8 +423,10 @@
     }
     else
     {
-        // Comprem
-        [self buy];
+        // Preguntem el dia a de transport
+        CalendarChooseViewController *tmpCCVC = [[CalendarChooseViewController alloc] init];
+        tmpCCVC.delegate = self;
+        [self.view addSubview:tmpCCVC.view];
     }
 }
 
@@ -414,6 +439,26 @@
 {
 }
 
+#pragma mark - Iteraccions amb la pantalla d'escollir dia
+-(void)ChoosedCanceled:(id)sender
+{
+    CalendarChooseViewController *tmpCCVC = (CalendarChooseViewController*)sender;
+    [tmpCCVC.view removeFromSuperview];
+}
+
+-(void)ChoosedOk:(id)sender date:(NSString *)a_date hourRange:(NSRange)a_hourRange
+{
+    CalendarChooseViewController *tmpCCVC = (CalendarChooseViewController*)sender;
+    finData.sendDay = a_date;
+    finData.hourRangeSendDay = a_hourRange;
+    [tmpCCVC.view removeFromSuperview];
+    // Mostrem la data d'enviament al ticket
+    
+    // Comprem
+    [self buy];
+}
+
+#pragma mark - Iteraccions amb la pantalla de configuració
 -(IBAction)onConfig:(id)sender
 {
     ConfigurationViewController *tmpCfgVC = [[ConfigurationViewController alloc] init];
@@ -509,11 +554,10 @@
 	[alert show];
 	[alert release];
 
+    paymentDone = YES;
     // Guardem la compra
     // Inicialitzem la taula
-    [products removeAllObjects];
-    [products addObject:@"NOP"];
-    isScanning = YES;
+    paymentDone = YES;
     [self organizeView];
 }
 

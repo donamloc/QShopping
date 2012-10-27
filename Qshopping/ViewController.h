@@ -21,14 +21,14 @@
 #import "WaitForPayment.h"
 #import "ConfigurationViewController.h"
 #import "ProductDescriptionViewController.h"
+#import "CalendarChooseViewController.h"
 #import <AudioToolbox/AudioToolbox.h>
 
 #define _TAG_LOGIN_ 105
 
 @interface ViewController : UIViewController
-    < ZBarReaderViewDelegate, 
-        UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, 
-        LoginDelegate, UIActionSheetDelegate,WaitForPaymentDelegate, ConfigVCDelegate, ProdDescVCDelegate>
+    < ZBarReaderViewDelegate,LoginDelegate,WaitForPaymentDelegate, ConfigVCDelegate, ProdDescVCDelegate, CalendarChooseVC,  
+        UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, UIActionSheetDelegate>
 {
     // Vista de captura del QRCode
     ZBarReaderView *readerView;
@@ -61,6 +61,8 @@
     
     // Valdrà cert mentre estiguem escanejant
     BOOL isScanning;
+    // Valdrà cert quan ja haguem comprat
+    BOOL paymentDone;
     
     // So d'escaneig
     SystemSoundID beepSound;

@@ -114,11 +114,11 @@
 								<int key="IBUIBaselineAdjustment">0</int>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 								<float key="IBUIMinimumFontSize">10</float>
-								<object class="IBUIFontDescription" key="IBUIFontDescription" id="970274877">
+								<object class="IBUIFontDescription" key="IBUIFontDescription">
 									<int key="type">2</int>
 									<double key="pointSize">16</double>
 								</object>
-								<object class="NSFont" key="IBUIFont" id="770585486">
+								<object class="NSFont" key="IBUIFont">
 									<string key="NSName">Helvetica-Bold</string>
 									<double key="NSSize">16</double>
 									<int key="NSfFlags">16</int>
@@ -146,15 +146,23 @@
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 								<float key="IBUIMinimumFontSize">10</float>
 								<int key="IBUINumberOfLines">3</int>
-								<reference key="IBUIFontDescription" ref="970274877"/>
-								<reference key="IBUIFont" ref="770585486"/>
+								<object class="IBUIFontDescription" key="IBUIFontDescription" id="705151099">
+									<string key="name">Helvetica-Bold</string>
+									<string key="family">Helvetica</string>
+									<int key="traits">2</int>
+									<double key="pointSize">16.5</double>
+								</object>
+								<object class="NSFont" key="IBUIFont" id="927453440">
+									<string key="NSName">Helvetica-Bold</string>
+									<double key="NSSize">16.5</double>
+									<int key="NSfFlags">16</int>
+								</object>
 							</object>
 							<object class="IBUILabel" id="324462592">
 								<reference key="NSNextResponder" ref="111930172"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{44, 46}, {264, 21}}</string>
+								<string key="NSFrame">{{44, 45}, {264, 21}}</string>
 								<reference key="NSSuperview" ref="111930172"/>
-								<reference key="NSNextKeyView"/>
 								<reference key="IBUIBackgroundColor" ref="848972412"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -171,8 +179,8 @@
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 								<float key="IBUIMinimumFontSize">10</float>
 								<int key="IBUITextAlignment">2</int>
-								<reference key="IBUIFontDescription" ref="970274877"/>
-								<reference key="IBUIFont" ref="770585486"/>
+								<reference key="IBUIFontDescription" ref="705151099"/>
+								<reference key="IBUIFont" ref="927453440"/>
 							</object>
 						</array>
 						<string key="NSFrameSize">{320, 69}</string>

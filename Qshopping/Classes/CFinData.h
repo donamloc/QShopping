@@ -17,6 +17,8 @@
     NSString *accountID;
     double amount;
     double totalAmount;
+    NSString *sendDay;
+    NSRange hourRangeSendDay;
 }
 
 @property (nonatomic, retain) NSString *token;
@@ -25,6 +27,8 @@
 @property (nonatomic, retain) NSString *accountID;
 @property (nonatomic, assign) double amount;
 @property (nonatomic, assign) double totalAmount;
+@property (nonatomic, retain) NSString *sendDay;
+@property (nonatomic, assign) NSRange hourRangeSendDay;
 
 // Carrega les targetes a la classe
 -(BOOL)getCards;

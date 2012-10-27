@@ -89,6 +89,9 @@
 		B14D81F5163BA1C100ABA692 /* Fondu_fake.png in Resources */ = {isa = PBXBuildFile; fileRef = B14D81F4163BA1C100ABA692 /* Fondu_fake.png */; };
 		B14D81F7163BA4B100ABA692 /* 1bit.png in Resources */ = {isa = PBXBuildFile; fileRef = B14D81F6163BA4B000ABA692 /* 1bit.png */; };
 		B14D81F9163BA9EB00ABA692 /* QR-Ombra.png in Resources */ = {isa = PBXBuildFile; fileRef = B14D81F8163BA9EB00ABA692 /* QR-Ombra.png */; };
+		B1DF7237163BC1BC005A7373 /* Calendarius.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B1DF7236163BC1BC005A7373 /* Calendarius.jpg */; };
+		B1DF723A163BC213005A7373 /* calendari_over in Resources */ = {isa = PBXBuildFile; fileRef = B1DF7239163BC213005A7373 /* calendari_over */; };
+		B1DF723C163BC546005A7373 /* license.txt in Resources */ = {isa = PBXBuildFile; fileRef = B1DF723B163BC546005A7373 /* license.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -218,6 +221,9 @@
 		B14D81F4163BA1C100ABA692 /* Fondu_fake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Fondu_fake.png; path = Qshopping/Images/Fondu_fake.png; sourceTree = "<group>"; };
 		B14D81F6163BA4B000ABA692 /* 1bit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1bit.png; path = Qshopping/Images/1bit.png; sourceTree = "<group>"; };
 		B14D81F8163BA9EB00ABA692 /* QR-Ombra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "QR-Ombra.png"; path = "Qshopping/Images/QR-Ombra.png"; sourceTree = "<group>"; };
+		B1DF7236163BC1BC005A7373 /* Calendarius.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Calendarius.jpg; path = Qshopping/Images/Calendarius.jpg; sourceTree = "<group>"; };
+		B1DF7239163BC213005A7373 /* calendari_over */ = {isa = PBXFileReference; lastKnownFileType = file; name = calendari_over; path = Qshopping/Images/calendari_over; sourceTree = "<group>"; };
+		B1DF723B163BC546005A7373 /* license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = license.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -394,6 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				B14D813F163AC73800ABA692 /* Coses.txt */,
+				B1DF723B163BC546005A7373 /* license.txt */,
 			);
 			name = Altres;
 			sourceTree = "<group>";
@@ -452,6 +459,8 @@
 		B14D8178163AF70E00ABA692 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B1DF7239163BC213005A7373 /* calendari_over */,
+				B1DF7236163BC1BC005A7373 /* Calendarius.jpg */,
 				B14D81F8163BA9EB00ABA692 /* QR-Ombra.png */,
 				B14D81F6163BA4B000ABA692 /* 1bit.png */,
 				B14D81F4163BA1C100ABA692 /* Fondu_fake.png */,
@@ -622,6 +631,9 @@
 				B14D81F5163BA1C100ABA692 /* Fondu_fake.png in Resources */,
 				B14D81F7163BA4B100ABA692 /* 1bit.png in Resources */,
 				B14D81F9163BA9EB00ABA692 /* QR-Ombra.png in Resources */,
+				B1DF7237163BC1BC005A7373 /* Calendarius.jpg in Resources */,
+				B1DF723A163BC213005A7373 /* calendari_over in Resources */,
+				B1DF723C163BC546005A7373 /* license.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

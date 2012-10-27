@@ -9,6 +9,7 @@
 #import "CalendarChooseViewController.h"
 
 @implementation CalendarChooseViewController
+@synthesize delegate, choosenDate, hourRange;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,6 +26,37 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
+}
+
+-(void)showConfirmation
+{
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Enviament de la comanda" message:@"Rebreu la vostra comanda\rDimarts 21/10/2012\rentre les 16h-18h"
+                                              delegate:self 
+                                              cancelButtonTitle:@"No"
+                                              otherButtonTitles:@"Sí",nil];
+	alert.tag = 10;
+	[alert show];
+	[alert release];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 10)
+    {
+        if (buttonIndex == 0)
+            [delegate ChoosedCanceled:self];
+        else
+            [delegate ChoosedOk:self date:choosenDate hourRange:hourRange];
+    }
+}
+
+-(IBAction)onTapDay:(id)sender
+{
+    choosenDate = @"2012/10/21";
+    
+    hourRange.location = 16;
+    hourRange.length = 2;
+    [self showConfirmation];
 }
 
 #pragma mark - View lifecycle

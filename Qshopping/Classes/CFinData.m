@@ -11,7 +11,7 @@
 
 @implementation CFinData
 
-@synthesize token, cardList,paymentCode,accountID,amount,totalAmount;
+@synthesize token, cardList,paymentCode,accountID,amount,totalAmount, sendDay, hourRangeSendDay;
 
 -(id)init
 {
