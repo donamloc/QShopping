@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B11C6415163BE42000501701 /* footCellImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B11C6414163BE42000501701 /* footCellImage.jpg */; };
 		B14D80AF163AB29A00ABA692 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D80AE163AB29A00ABA692 /* UIKit.framework */; };
 		B14D80B1163AB29A00ABA692 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D80B0163AB29A00ABA692 /* Foundation.framework */; };
 		B14D80B3163AB29A00ABA692 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14D80B2163AB29A00ABA692 /* CoreGraphics.framework */; };
@@ -95,6 +96,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B11C6414163BE42000501701 /* footCellImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = footCellImage.jpg; path = Qshopping/Images/footCellImage.jpg; sourceTree = "<group>"; };
 		B14D80AA163AB29A00ABA692 /* Qshopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Qshopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B14D80AE163AB29A00ABA692 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B14D80B0163AB29A00ABA692 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -459,6 +461,7 @@
 		B14D8178163AF70E00ABA692 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B11C6414163BE42000501701 /* footCellImage.jpg */,
 				B1DF7239163BC213005A7373 /* calendari_over */,
 				B1DF7236163BC1BC005A7373 /* Calendarius.jpg */,
 				B14D81F8163BA9EB00ABA692 /* QR-Ombra.png */,
@@ -634,6 +637,7 @@
 				B1DF7237163BC1BC005A7373 /* Calendarius.jpg in Resources */,
 				B1DF723A163BC213005A7373 /* calendari_over in Resources */,
 				B1DF723C163BC546005A7373 /* license.txt in Resources */,
+				B11C6415163BE42000501701 /* footCellImage.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

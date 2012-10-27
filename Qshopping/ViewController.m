@@ -77,16 +77,6 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-/*
-- (void) willRotateToInterfaceOrientation: (UIInterfaceOrientation) orient
-                                 duration: (NSTimeInterval) duration
-{
-    // compensate for view rotation so camera preview is not rotated
-    [readerView willRotateToInterfaceOrientation: orient
-                                        duration: duration];
-}
-*/
-
 #pragma mark - Funcions de tractament general
 -(void)AddScannedShop:(NSString*)a_sQRCode
 {
@@ -139,6 +129,21 @@
     [itemsListTable reloadData];
 }
 
+#pragma mark - moviments swipe
+- (IBAction)handleCellSwipe:(UISwipeGestureRecognizer *)sender
+{
+    /*
+    NSLog(@"Swipe");
+    ListCell* tmpCell = (ListCell*)sender.view;
+    NSIndexPath* tmpIndexPath = [itemsListTable indexPathForCell:tmpCell];
+    if (tmpIndexPath != nil)
+        m_IndexSwipe = [tmpIndexPath row];
+    else
+        m_IndexSwipe = -1;
+    [itemsListTable reloadData];
+    */
+}
+
 #pragma mark - UITableViewDelegate
 
 -(void)tableView:(UITableView*)tableView willDisplayCell:(UITableViewCell*)cell forRowAtIndexPath:(NSIndexPath*)indexPath
@@ -185,7 +190,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat tmpHeight = 45;
+    CGFloat tmpHeight = 327;
     if ([indexPath row] == 0)
         tmpHeight = 71;
     else if ([indexPath row] < [products count])
@@ -284,8 +289,10 @@
             }
             
             finData.totalAmount = finData.amount * 1.04;
-            NSString *stmpStringTotal = [NSString stringWithFormat:@"%2.f€ + %2.f€  %2.f€", finData.amount, finData.amount * 0.04, finData.totalAmount];
-            [tmpFooterListCell setTotal:stmpStringTotal];            
+            [tmpFooterListCell setTotal:[NSString stringWithFormat:@"%.2f€", finData.totalAmount]];            
+            [tmpFooterListCell setBase:[NSString stringWithFormat:@"%.2f€", finData.amount]];            
+            [tmpFooterListCell setNumArticles:[NSString stringWithFormat:@"%.2f€", (finData.amount*0.04)]];            
+            [tmpFooterListCell setIva:[NSString stringWithFormat:@"%.2f€", [products count]-1]];            
         }
         cell = tmpFooterListCell;
     }

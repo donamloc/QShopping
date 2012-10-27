@@ -33,7 +33,7 @@
 
 -(void)setTotalAmount:(double)a_dTotal
 {
-    amountLabel.text = [NSString stringWithFormat:@"%2.f €", a_dTotal];
+    amountLabel.text = [NSString stringWithFormat:@"%.2f €", a_dTotal];
 }
 
 #pragma mark - View lifecycle

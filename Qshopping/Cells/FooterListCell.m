@@ -9,7 +9,7 @@
 #import "FooterListCell.h"
 
 @implementation FooterListCell
-@synthesize totalLabel;
+@synthesize totalLabel, numArticlesLabel, baseLabel, ivaLabel;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -24,6 +24,20 @@
 {
     totalLabel.text = a_sTotal;
 }
+
+-(void)setNumArticles:(NSString*)a_sNumArticles
+{
+    numArticlesLabel.text = a_sNumArticles;
+}
+-(void)setBase:(NSString*)a_sBase;
+{
+    baseLabel.text = a_sBase;
+}
+-(void)setIva:(NSString*)a_sIva;
+{
+    ivaLabel.text = a_sIva;
+}
+
 
 - (void)dealloc
 {
