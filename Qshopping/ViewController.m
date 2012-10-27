@@ -3,7 +3,7 @@
 //  Qshopping
 //
 //  Created by Josep Oncins on 26/10/12.
-//  Copyright (c) 2012 Dona'm l'Oc. All rights reserved.
+//  LGPL Dona'm l'Oc. 
 //
 
 #import "ViewController.h"
@@ -13,7 +13,7 @@
 @implementation ViewController
 
 @synthesize itemsListTable, editListCell, listCell, headerListCell, readerView, products, theShop;
-@synthesize cancelBtn, payBtn, saveBtn, historyBtn, configBtn, ticketImage, separatorImage;
+@synthesize cancelBtn, payBtn, saveBtn, historyBtn, configBtn, ticketImage, separatorImage, activityIndicator, activityBg;
 
 - (void)didReceiveMemoryWarning
 {
@@ -38,6 +38,7 @@
     isScanning = YES;
     paymentDone = NO;
     finData = [[[CFinData alloc] init] retain];
+    [activityIndicator stopAnimating];
 }
 
 - (void)viewDidUnload
@@ -73,9 +74,10 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return NO;//(interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+/*
 - (void) willRotateToInterfaceOrientation: (UIInterfaceOrientation) orient
                                  duration: (NSTimeInterval) duration
 {
@@ -83,6 +85,7 @@
     [readerView willRotateToInterfaceOrientation: orient
                                         duration: duration];
 }
+*/
 
 #pragma mark - Funcions de tractament general
 -(void)AddScannedShop:(NSString*)a_sQRCode
@@ -126,13 +129,13 @@
     for(ZBarSymbol *sym in syms) 
     {
         NSLog(@"Llegit QR: %@", sym.data);
+        AudioServicesPlaySystemSound(beepSound);
         // Si és el primer producte, també llegim la botiga
         if ([products count] == 1)
             [self AddScannedShop:sym.data];
         [self AddScannedProduct:sym.data];
         break;
     }
-    AudioServicesPlaySystemSound(beepSound);
     [itemsListTable reloadData];
 }
 
@@ -142,12 +145,20 @@
 {
 }
 
+-(void)initActivity:(id)sender
+{
+    activityBg.hidden = NO;
+    [activityIndicator startAnimating];
+}
+
 // the table's selection has changed, show the alert or action sheet
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Fem alguna cosa amb l'article amb index [indexPath row]];
     if (([indexPath row] > 0)&&([indexPath row] <= [products count]))
     {
+        // Iniciem l'activity en un altre thread
+        [self performSelectorInBackground:@selector(initActivity:) withObject:self];        
         // Obtenim un png de la web
         CProduct *tmpProduct = (CProduct*)[products objectAtIndex:[indexPath row]];
 
@@ -155,6 +166,8 @@
         NSData *tmpData = [NSData dataWithContentsOfURL:[NSURL URLWithString:tmpURLImage]];
         UIImage *tmpImage = [UIImage imageWithData:tmpData];
         
+        activityBg.hidden = YES;
+        [activityIndicator stopAnimating];
         // Mostrem la VC
         ProductDescriptionViewController *tmpPDVC = [[ProductDescriptionViewController alloc] init];
         tmpPDVC.delegate = self;
@@ -172,7 +185,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat tmpHeight = 44;
+    CGFloat tmpHeight = 45;
     if ([indexPath row] == 0)
         tmpHeight = 71;
     else if ([indexPath row] < [products count])
@@ -270,9 +283,9 @@
                 finData.amount += tmpProduct.price;
             }
             
-            finData.totalAmount = finData.amount * 1.4;
-            NSString *stmpStringTotal = [NSString stringWithFormat:@"%2.f€ + %2.f€  %2.f€", finData.amount, finData.amount * 0.4, finData.totalAmount];
-            [tmpFooterListCell setTotal:stmpStringTotal];
+            finData.totalAmount = finData.amount * 1.04;
+            NSString *stmpStringTotal = [NSString stringWithFormat:@"%2.f€ + %2.f€  %2.f€", finData.amount, finData.amount * 0.04, finData.totalAmount];
+            [tmpFooterListCell setTotal:stmpStringTotal];            
         }
         cell = tmpFooterListCell;
     }

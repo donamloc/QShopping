@@ -3,7 +3,7 @@
 //  Qshopping
 //
 //  Created by Josep Oncins on 26/10/12.
-//  Copyright (c) 2012 clappthehands. All rights reserved.
+//  LGPL clappthehands. 
 //
 // Aquesta es la ViewController principal.
 // La primera que s'obre i a on es poden trobar les principals funcionalitats de l'aplicatiu
@@ -40,6 +40,9 @@
     IBOutlet FooterListCell *footerListCell;
     IBOutlet UIImageView *ticketImage;
     IBOutlet UIImageView *separatorImage;
+
+    IBOutlet UIImageView *activityBg;
+    IBOutlet UIActivityIndicatorView *activityIndicator;
     
     // Botons
     IBOutlet UIButton *cancelBtn;
@@ -84,6 +87,9 @@
 @property (nonatomic, retain) IBOutlet UIButton *configBtn;
 @property (nonatomic, retain) IBOutlet UIImageView *ticketImage;
 @property (nonatomic, retain) IBOutlet UIImageView *separatorImage;
+
+@property (nonatomic, retain) IBOutlet UIImageView *activityBg;
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *activityIndicator;
 
 // Accions en general
 -(void)AddScannedShop:(NSString*)a_sQRCode;
