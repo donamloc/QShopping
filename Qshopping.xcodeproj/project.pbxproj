@@ -73,6 +73,22 @@
 		B14D81CA163B3DEE00ABA692 /* TCard.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D81C9163B3DEC00ABA692 /* TCard.m */; };
 		B14D81CE163B505800ABA692 /* WaitForPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D81CC163B505600ABA692 /* WaitForPayment.m */; };
 		B14D81CF163B505800ABA692 /* WaitForPayment.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14D81CD163B505700ABA692 /* WaitForPayment.xib */; };
+		B14D81D1163B76EB00ABA692 /* Icona.png in Resources */ = {isa = PBXBuildFile; fileRef = B14D81D0163B76E900ABA692 /* Icona.png */; };
+		B14D81D5163B771D00ABA692 /* ConfigurationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D81D3163B771700ABA692 /* ConfigurationViewController.m */; };
+		B14D81D6163B771D00ABA692 /* ConfigurationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14D81D4163B771900ABA692 /* ConfigurationViewController.xib */; };
+		B14D81D8163B792B00ABA692 /* Escaneja.png in Resources */ = {isa = PBXBuildFile; fileRef = B14D81D7163B792B00ABA692 /* Escaneja.png */; };
+		B14D81DC163B7B7000ABA692 /* ProductDescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B14D81DA163B7B6C00ABA692 /* ProductDescriptionViewController.m */; };
+		B14D81DD163B7B7000ABA692 /* ProductDescriptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14D81DB163B7B6E00ABA692 /* ProductDescriptionViewController.xib */; };
+		B14D81E0163B7CD700ABA692 /* beep.caf in Resources */ = {isa = PBXBuildFile; fileRef = B14D81DF163B7CD700ABA692 /* beep.caf */; };
+		B14D81E9163B96BC00ABA692 /* PASS_Acceptar.png in Resources */ = {isa = PBXBuildFile; fileRef = B14D81E5163B96BC00ABA692 /* PASS_Acceptar.png */; };
+		B14D81EA163B96BC00ABA692 /* PASS_Cancelar.png in Resources */ = {isa = PBXBuildFile; fileRef = B14D81E6163B96BC00ABA692 /* PASS_Cancelar.png */; };
+		B14D81EB163B96BC00ABA692 /* PASS_FONS.png in Resources */ = {isa = PBXBuildFile; fileRef = B14D81E7163B96BC00ABA692 /* PASS_FONS.png */; };
+		B14D81EC163B96BC00ABA692 /* PASS_Top.png in Resources */ = {isa = PBXBuildFile; fileRef = B14D81E8163B96BC00ABA692 /* PASS_Top.png */; };
+		B14D81F2163B9E1500ABA692 /* taula-ticket-fi.png in Resources */ = {isa = PBXBuildFile; fileRef = B14D81F0163B9E1500ABA692 /* taula-ticket-fi.png */; };
+		B14D81F3163B9E1500ABA692 /* Taula-ticket.png in Resources */ = {isa = PBXBuildFile; fileRef = B14D81F1163B9E1500ABA692 /* Taula-ticket.png */; };
+		B14D81F5163BA1C100ABA692 /* Fondu_fake.png in Resources */ = {isa = PBXBuildFile; fileRef = B14D81F4163BA1C100ABA692 /* Fondu_fake.png */; };
+		B14D81F7163BA4B100ABA692 /* 1bit.png in Resources */ = {isa = PBXBuildFile; fileRef = B14D81F6163BA4B000ABA692 /* 1bit.png */; };
+		B14D81F9163BA9EB00ABA692 /* QR-Ombra.png in Resources */ = {isa = PBXBuildFile; fileRef = B14D81F8163BA9EB00ABA692 /* QR-Ombra.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -184,6 +200,24 @@
 		B14D81CB163B505500ABA692 /* WaitForPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WaitForPayment.h; path = Interfaces/WaitForPayment.h; sourceTree = "<group>"; };
 		B14D81CC163B505600ABA692 /* WaitForPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WaitForPayment.m; path = Interfaces/WaitForPayment.m; sourceTree = "<group>"; };
 		B14D81CD163B505700ABA692 /* WaitForPayment.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WaitForPayment.xib; path = Interfaces/WaitForPayment.xib; sourceTree = "<group>"; };
+		B14D81D0163B76E900ABA692 /* Icona.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icona.png; sourceTree = "<group>"; };
+		B14D81D2163B771600ABA692 /* ConfigurationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ConfigurationViewController.h; path = Interfaces/ConfigurationViewController.h; sourceTree = "<group>"; };
+		B14D81D3163B771700ABA692 /* ConfigurationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ConfigurationViewController.m; path = Interfaces/ConfigurationViewController.m; sourceTree = "<group>"; };
+		B14D81D4163B771900ABA692 /* ConfigurationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ConfigurationViewController.xib; path = Interfaces/ConfigurationViewController.xib; sourceTree = "<group>"; };
+		B14D81D7163B792B00ABA692 /* Escaneja.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Escaneja.png; path = Qshopping/Images/Escaneja.png; sourceTree = "<group>"; };
+		B14D81D9163B7B6A00ABA692 /* ProductDescriptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProductDescriptionViewController.h; path = Interfaces/ProductDescriptionViewController.h; sourceTree = "<group>"; };
+		B14D81DA163B7B6C00ABA692 /* ProductDescriptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProductDescriptionViewController.m; path = Interfaces/ProductDescriptionViewController.m; sourceTree = "<group>"; };
+		B14D81DB163B7B6E00ABA692 /* ProductDescriptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ProductDescriptionViewController.xib; path = Interfaces/ProductDescriptionViewController.xib; sourceTree = "<group>"; };
+		B14D81DF163B7CD700ABA692 /* beep.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = beep.caf; sourceTree = "<group>"; };
+		B14D81E5163B96BC00ABA692 /* PASS_Acceptar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PASS_Acceptar.png; path = Qshopping/Images/PASS_Acceptar.png; sourceTree = "<group>"; };
+		B14D81E6163B96BC00ABA692 /* PASS_Cancelar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PASS_Cancelar.png; path = Qshopping/Images/PASS_Cancelar.png; sourceTree = "<group>"; };
+		B14D81E7163B96BC00ABA692 /* PASS_FONS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PASS_FONS.png; path = Qshopping/Images/PASS_FONS.png; sourceTree = "<group>"; };
+		B14D81E8163B96BC00ABA692 /* PASS_Top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PASS_Top.png; path = Qshopping/Images/PASS_Top.png; sourceTree = "<group>"; };
+		B14D81F0163B9E1500ABA692 /* taula-ticket-fi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "taula-ticket-fi.png"; path = "Qshopping/Images/taula-ticket-fi.png"; sourceTree = "<group>"; };
+		B14D81F1163B9E1500ABA692 /* Taula-ticket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Taula-ticket.png"; path = "Qshopping/Images/Taula-ticket.png"; sourceTree = "<group>"; };
+		B14D81F4163BA1C100ABA692 /* Fondu_fake.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Fondu_fake.png; path = Qshopping/Images/Fondu_fake.png; sourceTree = "<group>"; };
+		B14D81F6163BA4B000ABA692 /* 1bit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1bit.png; path = Qshopping/Images/1bit.png; sourceTree = "<group>"; };
+		B14D81F8163BA9EB00ABA692 /* QR-Ombra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "QR-Ombra.png"; path = "Qshopping/Images/QR-Ombra.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +244,8 @@
 		B14D809F163AB29900ABA692 = {
 			isa = PBXGroup;
 			children = (
+				B14D81DE163B7CD600ABA692 /* Sons */,
+				B14D81D0163B76E900ABA692 /* Icona.png */,
 				B14D81A8163B002700ABA692 /* Default@2x.png */,
 				B14D8178163AF70E00ABA692 /* Images */,
 				B14D813E163AC72600ABA692 /* Altres */,
@@ -403,6 +439,12 @@
 				B14D81CB163B505500ABA692 /* WaitForPayment.h */,
 				B14D81CC163B505600ABA692 /* WaitForPayment.m */,
 				B14D81CD163B505700ABA692 /* WaitForPayment.xib */,
+				B14D81D2163B771600ABA692 /* ConfigurationViewController.h */,
+				B14D81D3163B771700ABA692 /* ConfigurationViewController.m */,
+				B14D81D4163B771900ABA692 /* ConfigurationViewController.xib */,
+				B14D81D9163B7B6A00ABA692 /* ProductDescriptionViewController.h */,
+				B14D81DA163B7B6C00ABA692 /* ProductDescriptionViewController.m */,
+				B14D81DB163B7B6E00ABA692 /* ProductDescriptionViewController.xib */,
 			);
 			name = Interfaces;
 			sourceTree = "<group>";
@@ -410,6 +452,16 @@
 		B14D8178163AF70E00ABA692 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B14D81F8163BA9EB00ABA692 /* QR-Ombra.png */,
+				B14D81F6163BA4B000ABA692 /* 1bit.png */,
+				B14D81F4163BA1C100ABA692 /* Fondu_fake.png */,
+				B14D81F0163B9E1500ABA692 /* taula-ticket-fi.png */,
+				B14D81F1163B9E1500ABA692 /* Taula-ticket.png */,
+				B14D81E5163B96BC00ABA692 /* PASS_Acceptar.png */,
+				B14D81E6163B96BC00ABA692 /* PASS_Cancelar.png */,
+				B14D81E7163B96BC00ABA692 /* PASS_FONS.png */,
+				B14D81E8163B96BC00ABA692 /* PASS_Top.png */,
+				B14D81D7163B792B00ABA692 /* Escaneja.png */,
 				B14D81C0163B319100ABA692 /* Botons Pagar */,
 				B14D8179163AF72C00ABA692 /* Ads */,
 				B14D817F163AF72C00ABA692 /* Botons */,
@@ -458,6 +510,15 @@
 			);
 			name = "Botons Pagar";
 			path = "Qshopping/Images/Botons Pagar";
+			sourceTree = "<group>";
+		};
+		B14D81DE163B7CD600ABA692 /* Sons */ = {
+			isa = PBXGroup;
+			children = (
+				B14D81DF163B7CD700ABA692 /* beep.caf */,
+			);
+			name = Sons;
+			path = Qshopping/Sons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -547,6 +608,20 @@
 				B14D81C3163B319100ABA692 /* Boto_Pagar_OFF.jpg in Resources */,
 				B14D81C4163B319100ABA692 /* Boto_Pagar_ON.jpg in Resources */,
 				B14D81CF163B505800ABA692 /* WaitForPayment.xib in Resources */,
+				B14D81D1163B76EB00ABA692 /* Icona.png in Resources */,
+				B14D81D6163B771D00ABA692 /* ConfigurationViewController.xib in Resources */,
+				B14D81D8163B792B00ABA692 /* Escaneja.png in Resources */,
+				B14D81DD163B7B7000ABA692 /* ProductDescriptionViewController.xib in Resources */,
+				B14D81E0163B7CD700ABA692 /* beep.caf in Resources */,
+				B14D81E9163B96BC00ABA692 /* PASS_Acceptar.png in Resources */,
+				B14D81EA163B96BC00ABA692 /* PASS_Cancelar.png in Resources */,
+				B14D81EB163B96BC00ABA692 /* PASS_FONS.png in Resources */,
+				B14D81EC163B96BC00ABA692 /* PASS_Top.png in Resources */,
+				B14D81F2163B9E1500ABA692 /* taula-ticket-fi.png in Resources */,
+				B14D81F3163B9E1500ABA692 /* Taula-ticket.png in Resources */,
+				B14D81F5163BA1C100ABA692 /* Fondu_fake.png in Resources */,
+				B14D81F7163BA4B100ABA692 /* 1bit.png in Resources */,
+				B14D81F9163BA9EB00ABA692 /* QR-Ombra.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +651,8 @@
 				B14D81C7163B31FD00ABA692 /* CFinData.m in Sources */,
 				B14D81CA163B3DEE00ABA692 /* TCard.m in Sources */,
 				B14D81CE163B505800ABA692 /* WaitForPayment.m in Sources */,
+				B14D81D5163B771D00ABA692 /* ConfigurationViewController.m in Sources */,
+				B14D81DC163B7B7000ABA692 /* ProductDescriptionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,6 +770,7 @@
 				B14D80CA163AB29A00ABA692 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

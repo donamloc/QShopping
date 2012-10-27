@@ -7,14 +7,13 @@
 //
 
 #import "ViewController.h"
-#import <AudioToolbox/AudioToolbox.h>
 #import "TCard.h"
 #import "Constants.h"
 
 @implementation ViewController
 
 @synthesize itemsListTable, editListCell, listCell, headerListCell, readerView, products, theShop;
-@synthesize cancelBtn, payBtn, saveBtn, historyBtn, configBtn;
+@synthesize cancelBtn, payBtn, saveBtn, historyBtn, configBtn, ticketImage, separatorImage;
 
 - (void)didReceiveMemoryWarning
 {
@@ -27,6 +26,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSString *stmpSoundName = [[NSBundle mainBundle] pathForResource:@"beep" ofType:@"caf"];
+    CFURLRef soundURL = (CFURLRef) [NSURL fileURLWithPath:stmpSoundName];
+    AudioServicesCreateSystemSoundID(soundURL, &beepSound);
     
     readerView.readerDelegate = self;
     products = [[NSMutableArray arrayWithCapacity:5] retain];
@@ -69,7 +72,7 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    return YES;//(interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    return NO;//(interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
 - (void) willRotateToInterfaceOrientation: (UIInterfaceOrientation) orient
@@ -128,7 +131,7 @@
         [self AddScannedProduct:sym.data];
         break;
     }
-    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+    AudioServicesPlaySystemSound(beepSound);
     [itemsListTable reloadData];
 }
 
@@ -142,13 +145,35 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Fem alguna cosa amb l'article amb index [indexPath row]];
+    if (([indexPath row] > 0)&&([indexPath row] <= [products count]))
+    {
+        // Obtenim un png de la web
+        CProduct *tmpProduct = (CProduct*)[products objectAtIndex:[indexPath row]];
+
+        NSString *tmpURLImage = [NSString stringWithFormat:@"%@/Ad_0%@.png", _URL_AZURE_, tmpProduct.ID];
+        NSData *tmpData = [NSData dataWithContentsOfURL:[NSURL URLWithString:tmpURLImage]];
+        UIImage *tmpImage = [UIImage imageWithData:tmpData];
+        
+        // Mostrem la VC
+        ProductDescriptionViewController *tmpPDVC = [[ProductDescriptionViewController alloc] init];
+        tmpPDVC.delegate = self;
+        tmpPDVC.theImage = tmpImage;
+        [self.view addSubview:tmpPDVC.view];
+    }
 }
+
+-(void)ExitProdDesc:(id)sender
+{    
+    ProductDescriptionViewController *tmpPDVC = (ProductDescriptionViewController*)sender;
+    [tmpPDVC.view removeFromSuperview];
+}
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGFloat tmpHeight = 44;
     if ([indexPath row] == 0)
-        tmpHeight = 130;
+        tmpHeight = 71;
     else if ([indexPath row] < [products count])
         tmpHeight = 70;
     
@@ -191,6 +216,8 @@
         {
             if (theShop != nil)
                 [headerCell setLogo:theShop.logoImage];
+            else
+                [headerCell setLogo:[UIImage imageNamed:@"1bit.png"]];
         }
         cell = headerCell;
     }
@@ -230,9 +257,21 @@
         
         if (tmpFooterListCell != nil)
         {
-            // FAKE
-            [tmpFooterListCell setTotal:@"60,80"];
-            finData.amount = 60.80;
+            NSEnumerator *enumerator = [products objectEnumerator];
+            // Ens Saltem l'OP
+            [enumerator nextObject];
+            
+            CProduct *tmpProduct;
+            finData.amount = 0;
+
+            while (tmpProduct = (CProduct*)[enumerator nextObject])
+            {
+                finData.amount += tmpProduct.price;
+            }
+            
+            finData.totalAmount = finData.amount * 1.4;
+            NSString *stmpStringTotal = [NSString stringWithFormat:@"%2.f€ + %2.f€  %2.f€", finData.amount, finData.amount * 0.4, finData.totalAmount];
+            [tmpFooterListCell setTotal:stmpStringTotal];
         }
         cell = tmpFooterListCell;
     }
@@ -281,6 +320,9 @@
         // El segon és validar compra
         [payBtn setImage:[UIImage imageNamed:@"Boto_Compra_OFF.jpg"] forState:UIControlStateNormal];
         [payBtn setImage:[UIImage imageNamed:@"Boto_Compra_ON.jpg"] forState:UIControlStateHighlighted];
+        // Mostrem el fons i el separador
+        ticketImage.hidden = NO;
+        separatorImage.hidden = NO;
     }
     else
     {
@@ -297,6 +339,9 @@
         // El segon botó és comprar
         [payBtn setImage:[UIImage imageNamed:@"Boto_Pagar_OFF.jpg"] forState:UIControlStateNormal];
         [payBtn setImage:[UIImage imageNamed:@"Boto_Pagar_ON.jpg"] forState:UIControlStateHighlighted];
+        // Amaguem el fons i el separador
+        ticketImage.hidden = YES;
+        separatorImage.hidden = YES;
     }
     [itemsListTable reloadData];
 }
@@ -346,10 +391,12 @@
 {
     if (isScanning)
     {
-        // Validem compra
-        isScanning = NO;
-        [self organizeView];
-        // Fem la crida per obtenir el total
+        if ([products count] > 1)
+        {
+            // Validem compra
+            isScanning = NO;
+            [self organizeView];
+        }
     }
     else
     {
@@ -369,6 +416,15 @@
 
 -(IBAction)onConfig:(id)sender
 {
+    ConfigurationViewController *tmpCfgVC = [[ConfigurationViewController alloc] init];
+    tmpCfgVC.delegate = self;
+    [self.view addSubview:tmpCfgVC.view];
+}
+
+-(void)ExitConfig:(id)sender
+{
+    ConfigurationViewController *tmpCfgVC = (ConfigurationViewController*)sender;
+    [tmpCfgVC.view removeFromSuperview];
 }
 
 #pragma mark - Interaccions de pagament
@@ -378,6 +434,7 @@
     LoginViewController *tmpLoginView = [[LoginViewController alloc] init];
     tmpLoginView.view.tag = _TAG_LOGIN_;
     tmpLoginView.delegate = self;
+    [tmpLoginView setTotalAmount:finData.totalAmount];
     [self.view addSubview:tmpLoginView.view];
 }
 
@@ -443,6 +500,21 @@
     [tmpWFP release];
     // Ja hem comprat!
     NSLog(@"Ja hem comprat");
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Gràcies" message:@"Compra realitzada. Gràcies per usar QShopping"
+												   delegate:self 
+										  cancelButtonTitle:@"Ok"
+										  otherButtonTitles:nil,nil];
+	alert.tag = 0;
+	[alert show];
+	[alert release];
+
+    // Guardem la compra
+    // Inicialitzem la taula
+    [products removeAllObjects];
+    [products addObject:@"NOP"];
+    isScanning = YES;
+    [self organizeView];
 }
 
 

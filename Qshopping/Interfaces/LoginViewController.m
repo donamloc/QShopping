@@ -12,7 +12,7 @@
 
 @implementation LoginViewController
 
-@synthesize username, password, delegate;
+@synthesize username, password, delegate, amountLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +29,11 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
+}
+
+-(void)setTotalAmount:(double)a_dTotal
+{
+    amountLabel.text = [NSString stringWithFormat:@"%2.f €", a_dTotal];
 }
 
 #pragma mark - View lifecycle

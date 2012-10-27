@@ -11,9 +11,10 @@
 			<string key="NS.object.0">933</string>
 		</object>
 		<array key="IBDocument.IntegratedClassDependencies">
-			<string>IBProxyObject</string>
-			<string>IBUILabel</string>
 			<string>IBUITableViewCell</string>
+			<string>IBUIImageView</string>
+			<string>IBUILabel</string>
+			<string>IBProxyObject</string>
 		</array>
 		<array key="IBDocument.PluginDependencies">
 			<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -39,10 +40,24 @@
 						<reference key="NSNextResponder" ref="782400471"/>
 						<int key="NSvFlags">256</int>
 						<array class="NSMutableArray" key="NSSubviews">
+							<object class="IBUIImageView" id="44852039">
+								<reference key="NSNextResponder" ref="707508376"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{-2, 0}, {322, 44}}</string>
+								<reference key="NSSuperview" ref="707508376"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="269639298"/>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<object class="NSCustomResource" key="IBUIImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">taula-ticket-fi.png</string>
+								</object>
+							</object>
 							<object class="IBUILabel" id="269639298">
 								<reference key="NSNextResponder" ref="707508376"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{116, 11}, {42, 21}}</string>
+								<string key="NSFrame">{{114, 11}, {194, 21}}</string>
 								<reference key="NSSuperview" ref="707508376"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView"/>
@@ -58,14 +73,16 @@
 								</object>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">1</int>
+								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 								<float key="IBUIMinimumFontSize">10</float>
+								<int key="IBUITextAlignment">2</int>
 								<object class="IBUIFontDescription" key="IBUIFontDescription">
-									<int key="type">1</int>
-									<double key="pointSize">17</double>
+									<int key="type">2</int>
+									<double key="pointSize">16</double>
 								</object>
 								<object class="NSFont" key="IBUIFont">
-									<string key="NSName">Helvetica</string>
-									<double key="NSSize">17</double>
+									<string key="NSName">Helvetica-Bold</string>
+									<double key="NSSize">16</double>
 									<int key="NSfFlags">16</int>
 								</object>
 							</object>
@@ -73,7 +90,7 @@
 						<string key="NSFrameSize">{320, 43}</string>
 						<reference key="NSSuperview" ref="782400471"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="269639298"/>
+						<reference key="NSNextKeyView" ref="44852039"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MCAwAA</bytes>
@@ -90,6 +107,7 @@
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="707508376"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+				<int key="IBUISelectionStyle">0</int>
 				<reference key="IBUIContentView" ref="707508376"/>
 				<string key="IBUIReuseIdentifier">tblFooterListCell</string>
 			</object>
@@ -137,6 +155,7 @@
 						<reference key="object" ref="782400471"/>
 						<array class="NSMutableArray" key="children">
 							<reference ref="269639298"/>
+							<reference ref="44852039"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -145,6 +164,11 @@
 						<reference key="object" ref="269639298"/>
 						<reference key="parent" ref="782400471"/>
 						<string key="objectName">Total</string>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">8</int>
+						<reference key="object" ref="44852039"/>
+						<reference key="parent" ref="782400471"/>
 					</object>
 				</array>
 			</object>
@@ -156,12 +180,13 @@
 				<string key="4.CustomClassName">FooterListCell</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="8.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">7</int>
+			<int key="maxID">8</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -297,6 +322,8 @@
 						<string key="payBtn">UIButton</string>
 						<string key="readerView">ZBarReaderView</string>
 						<string key="saveBtn">UIButton</string>
+						<string key="separatorImage">UIImageView</string>
+						<string key="ticketImage">UIImageView</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="cancelBtn">
@@ -343,6 +370,14 @@
 							<string key="name">saveBtn</string>
 							<string key="candidateClassName">UIButton</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="separatorImage">
+							<string key="name">separatorImage</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="ticketImage">
+							<string key="name">ticketImage</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
@@ -363,6 +398,10 @@
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
+		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="NS.key.0">taula-ticket-fi.png</string>
+			<string key="NS.object.0">{644, 88}</string>
+		</object>
 		<string key="IBCocoaTouchPluginVersion">933</string>
 	</data>
 </archive>

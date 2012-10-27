@@ -19,14 +19,16 @@
 #import "LoginViewController.h"
 #import "CFinData.h"
 #import "WaitForPayment.h"
+#import "ConfigurationViewController.h"
+#import "ProductDescriptionViewController.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 #define _TAG_LOGIN_ 105
 
 @interface ViewController : UIViewController
     < ZBarReaderViewDelegate, 
-        UITableViewDataSource, 
-        UITableViewDelegate, UIAlertViewDelegate, 
-        LoginDelegate, UIActionSheetDelegate,WaitForPaymentDelegate>
+        UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate, 
+        LoginDelegate, UIActionSheetDelegate,WaitForPaymentDelegate, ConfigVCDelegate, ProdDescVCDelegate>
 {
     // Vista de captura del QRCode
     ZBarReaderView *readerView;
@@ -36,6 +38,8 @@
     IBOutlet ListCell *listCell;
     IBOutlet HeaderListCell *headerListCell;
     IBOutlet FooterListCell *footerListCell;
+    IBOutlet UIImageView *ticketImage;
+    IBOutlet UIImageView *separatorImage;
     
     // Botons
     IBOutlet UIButton *cancelBtn;
@@ -57,6 +61,10 @@
     
     // Valdrà cert mentre estiguem escanejant
     BOOL isScanning;
+    
+    // So d'escaneig
+    SystemSoundID beepSound;
+
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *itemsListTable;
@@ -72,6 +80,8 @@
 @property (nonatomic, retain) IBOutlet UIButton *saveBtn;
 @property (nonatomic, retain) IBOutlet UIButton *historyBtn;
 @property (nonatomic, retain) IBOutlet UIButton *configBtn;
+@property (nonatomic, retain) IBOutlet UIImageView *ticketImage;
+@property (nonatomic, retain) IBOutlet UIImageView *separatorImage;
 
 // Accions en general
 -(void)AddScannedShop:(NSString*)a_sQRCode;

@@ -7,6 +7,7 @@
 //
 
 #import "CProduct.h"
+#import "Constants.h"
 
 @implementation CProduct
 
@@ -49,21 +50,42 @@
     NSLog(@"Llegint QR: %@", a_sQR);
     if (listItems.count == 3)
     {
-        NSString *stmpURL = [listItems objectAtIndex:0];
         NSString *stmpShopID = [listItems objectAtIndex:1];
         NSString *stmpProductID = [listItems objectAtIndex:2];
-        NSString *stmpProdURL = [stmpURL stringByAppendingFormat:@"/GetProductInformation.asmx?IDShop=%@&ID=%@", stmpShopID, stmpProductID];
+        NSString *stmpProdURL = [NSString stringWithFormat:@"%@/GetProductInformation.asmx/GetProductDescription?IDShop=%@&ID=%@", _URL_AZURE_, stmpShopID, stmpProductID];
         NSLog(@"Obtenim el producte a la URL: %@", stmpProdURL);
-        NSString *stmpProductData = [NSString stringWithContentsOfURL:[NSURL URLWithString:stmpProdURL] encoding:NSASCIIStringEncoding error:NULL];
+        NSData *tmpProductData = [NSData dataWithContentsOfURL:[NSURL URLWithString:stmpProdURL]];
+        NSString *stmpProductData = [[[NSString alloc] initWithData:tmpProductData encoding:NSUTF8StringEncoding] autorelease];
+
         NSLog(@"JSON Producte amb ID %@: %@", stmpProductID, stmpProductData);
         
-        // FAKE
-        ID = @"1";
-        quantity = 1;
-        description = @"Descripció producte";
-        price = 25.50;
+        if (tmpProductData != nil)
+        {
+            ID = [stmpProductID retain];
+            quantity = 1;
+            
+            NSArray *tmpComponents = [stmpProductData componentsSeparatedByString:@"\""];
+            NSEnumerator *enumerator = [tmpComponents objectEnumerator];
+            NSString *stmpString;
+            while (stmpString = (NSString*)[enumerator nextObject]) 
+            {
+                if ([stmpString compare:@"Description"] == NSOrderedSame)
+                {
+                    // Avancem l'enumerator dues posicions
+                    [enumerator nextObject]; // Els :
+                    description = [(NSString*)[enumerator nextObject] retain]; // La descripció
+                }
+                else if ([stmpString compare:@"Price"] == NSOrderedSame)
+                {
+                    // Avancem l'enumerator dues posicions
+                    [enumerator nextObject]; // Els :
+                    price = [(NSString*)[enumerator nextObject] doubleValue]; // El preu
+                }
+            }
+            
+            btmpTotOk = YES;
+        }
         
-        btmpTotOk = YES;
     }
 
     // TEST ERROR

@@ -7,6 +7,7 @@
 //
 
 #import "CShop.h"
+#import "Constants.h"
 
 @implementation CShop
 
@@ -26,8 +27,9 @@
         NSString *stmpShopURL = [stmpURL stringByAppendingFormat:@"/GetShopDescription.asmx?ID=%@", stmpShopID];
         NSLog(@"Fem la crida a la URL: %@", stmpShopURL);
         
-        // FAKE
-        logoImage = [UIImage imageNamed:@"Logo.png"];
+        NSString *tmpURLImage = [NSString stringWithFormat:@"%@/Shop_%@.png", _URL_AZURE_, stmpShopID];
+        NSData *tmpData = [NSData dataWithContentsOfURL:[NSURL URLWithString:tmpURLImage]];
+        logoImage = [[UIImage imageWithData:tmpData] retain];
 
         /*
         NSData *tmpImgData = [NSData dataWithContentsOfURL:[NSURL URLWithString:stmpShopURL]];

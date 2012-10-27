@@ -33,7 +33,7 @@
 -(void)setTotal:(double)a_price quantity:(NSInteger)a_iQuantity
 {
     double dtmpTotal = a_price * a_iQuantity;
-    totalLabel.text = [NSString stringWithFormat:@"%.2f x %ld = %.2f", a_price, a_iQuantity, dtmpTotal];
+    totalLabel.text = [NSString stringWithFormat:@"%.2f x %ld        %.2f", a_price, a_iQuantity, dtmpTotal];
 }
 
 - (void)dealloc

@@ -108,7 +108,7 @@
     //EXECUTEM LA COMPRA
     BOOL btmpOk = NO;
     // Fem la crida a la API 
-    NSString *stmpURLLogin = [NSString stringWithFormat:@"%@/%@/%@", _BASE_API_URL_, finData.token, 
+    NSString *stmpURLLogin = [NSString stringWithFormat:@"%@/%@/%@", _BASE_API_URL_, _COMMERCE_TOKEN_, 
                               [NSString stringWithFormat:_EXECUTE_COMMERCE_PAYMENT_, finData.paymentCode]];
     
     NSURL *tmpURL = [NSURL URLWithString:stmpURLLogin];
@@ -116,7 +116,7 @@
     [wsRequest setHTTPMethod:@"POST"];
     [wsRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
 
-    NSString *tmpBody = [NSString stringWithFormat:@"{\"idAccount\":\"%@\"}", finData.accountID];
+    NSString *tmpBody = [NSString stringWithFormat:@"{\"idAccount\":\"%@\"}", _ACCOUNT_COMMERCE_ID_];
     NSData *theBodyData = [tmpBody dataUsingEncoding:NSUTF8StringEncoding];
     [wsRequest setHTTPBody:theBodyData];  
 

@@ -16,6 +16,7 @@
     NSString *paymentCode;
     NSString *accountID;
     double amount;
+    double totalAmount;
 }
 
 @property (nonatomic, retain) NSString *token;
@@ -23,6 +24,7 @@
 @property (nonatomic, retain) NSString *paymentCode;
 @property (nonatomic, retain) NSString *accountID;
 @property (nonatomic, assign) double amount;
+@property (nonatomic, assign) double totalAmount;
 
 // Carrega les targetes a la classe
 -(BOOL)getCards;

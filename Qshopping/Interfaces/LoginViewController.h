@@ -15,11 +15,15 @@
     id<LoginDelegate> delegate;
     IBOutlet UITextField *username;
     IBOutlet UITextField *password;
+    IBOutlet UILabel *amountLabel;
 }
 
 @property(nonatomic, assign) id<LoginDelegate> delegate;
 @property (nonatomic, assign) IBOutlet UITextField *username;
 @property (nonatomic, assign) IBOutlet UITextField *password;
+@property(nonatomic, assign) IBOutlet UILabel *amountLabel;
+
+-(void)setTotalAmount:(double)a_dTotal;
 
 -(IBAction)onOk:(id)sender;
 -(IBAction)onCancel:(id)sender;
