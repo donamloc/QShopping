@@ -3,7 +3,7 @@
 //  Qshopping
 //
 //  Created by Josep Oncins on 26/10/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Dona'm l'Oc. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -29,6 +29,10 @@
     self.viewController = [[[ViewController alloc] initWithNibName:@"ViewController" bundle:nil] autorelease];
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    // force view class to load so it may be referenced directly from NIB
+    [ZBarReaderView class];
+    
     return YES;
 }
 
